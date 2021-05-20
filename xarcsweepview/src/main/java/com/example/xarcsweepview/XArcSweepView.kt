@@ -217,4 +217,12 @@ class XArcSweepView(ctx : Context) : View(ctx) {
             }
         }
     }
+
+    companion object {
+        fun create(activity : Activity) : XArcSweepView {
+            val view : XArcSweepView = XArcSweepView(activity)
+            activity.setContentView(view)
+            return view
+        }
+    }
 }
