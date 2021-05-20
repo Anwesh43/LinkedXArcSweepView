@@ -1,0 +1,3 @@
+include ':xarcsweepview'
+include ':app'
+rootProject.name = "LinkedXArcSweepView"
