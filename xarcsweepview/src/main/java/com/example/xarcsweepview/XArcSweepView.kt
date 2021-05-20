@@ -192,4 +192,27 @@ class XArcSweepView(ctx : Context) : View(ctx) {
             curr.startUpdating(cb)
         }
     }
+
+    data class Renderer(var view : XArcSweepView) {
+
+        private val animator : Animator = Animator(view)
+        private val xarcSweep : XArcSweep = XArcSweep(0)
+        private val paint : Paint = Paint(Paint.ANTI_ALIAS_FLAG)
+
+        fun render(canvas : Canvas) {
+            canvas.drawColor(backColor)
+            xarcSweep.draw(canvas, paint)
+            animator.animate {
+                xarcSweep.update {
+                    animator.stop()
+                }
+            }
+        }
+
+        fun handleTap() {
+            xarcSweep.startUpdating {
+                animator.start()
+            }
+        }
+    }
 }
