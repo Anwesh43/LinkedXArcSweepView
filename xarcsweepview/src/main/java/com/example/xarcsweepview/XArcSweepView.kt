@@ -44,7 +44,7 @@ fun Canvas.drawXArcSweep(scale : Float, w : Float, h : Float, paint : Paint) {
         save()
         scale(1f, 1f - 2 * j)
         save()
-        rotate(rot * sf2)
+        rotate(rot * sf2 * 0.5f)
         drawLine(0f, -size * sf1, 0f, size * sf1, paint)
         restore()
         paint.style = Paint.Style.STROKE
